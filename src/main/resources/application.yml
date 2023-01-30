@@ -1,0 +1,28 @@
+server:
+  servlet:
+    context-path: /st
+  port: 80
+
+spring:
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  h2:
+    console:
+      enabled: true
+
+db_params:
+  driver: org.h2.Driver
+  url: jdbc:h2:mem:stprescriptions
+  username: SA
+  password:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, mappings
+      base-path: /
