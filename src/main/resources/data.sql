@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS PRESCRIPTIONS (
 
 CREATE TABLE IF NOT EXISTS MEDICINES (
     medicine_id INT NOT NULL,
+    medicine_name VARCHAR(100) NOT NULL,
     min_age_consumption INT,
     max_age_consumption INT,
     gender_consumption CHAR(1)

@@ -1,6 +1,6 @@
 package com.st.challenge.commons.utils;
 
-import com.st.challenge.patients.entities.PatientEntity;
+import com.st.challenge.commons.entities.PatientEntity;
 import com.st.challenge.patients.models.PatientResponse;
 import org.springframework.beans.BeanUtils;
 

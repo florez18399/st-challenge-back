@@ -4,10 +4,9 @@ import com.st.challenge.patients.models.CreatePatientRequest;
 import com.st.challenge.patients.models.PatientResponse;
 import com.st.challenge.patients.models.GetPatientsListResponse;
 import com.st.challenge.patients.models.UpdatePatientRequest;
-import com.st.challenge.patients.services.PatientsService;
+import com.st.challenge.patients.services.PatientsServiceI;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,10 +19,10 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class PatientsController {
 
-    PatientsService patientsService;
+    PatientsServiceI patientsService;
 
     @Autowired
-    public PatientsController(PatientsService patientsService) {
+    public PatientsController(PatientsServiceI patientsService) {
         this.patientsService = patientsService;
     }
 

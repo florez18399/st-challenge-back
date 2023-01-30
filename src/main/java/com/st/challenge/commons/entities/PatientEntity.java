@@ -1,4 +1,4 @@
-package com.st.challenge.patients.entities;
+package com.st.challenge.commons.entities;
 
 import com.st.challenge.commons.enums.Gender;
 import jakarta.persistence.*;

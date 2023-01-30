@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "name": "Sildenafil",
+        "min_age": 18,
+        "max_age": 70,
+        "single_gender": "MALE"
+    },
+    {
+        "id": 2,
+        "name": "Prostatil",
+        "min_age": 18,
+        "max_age": 70,
+        "single_gender": "MALE"
+    },
+    {
+        "id": 3,
+        "name": "Tamoxifeno",
+        "min_age": 25,
+        "max_age": 80,
+        "single_gender": "FEMALE"
+    },
+    {
+        "id": 4,
+        "name": "Raloxifeno",
+        "min_age": 25,
+        "max_age": 80,
+        "single_gender": "FEMALE"
+    },
+    {
+        "id": 5,
+        "name": "Dolex niños",
+        "min_age": 1,
+        "max_age": 14,
+        "single_gender": null
+    },
+    {
+        "id": 6,
+        "name": "Dolex fortex",
+        "min_age": 15,
+        "max_age": 75,
+        "single_gender": null
+    },
+    {
+        "id": 7,
+        "name": "Atorvastatina",
+        "min_age": 18,
+        "max_age": null,
+        "single_gender": null
+    },
+    {
+        "id": 8,
+        "name": "Ibuprofeno jarabe",
+        "min_age": 0,
+        "max_age": 10,
+        "single_gender": null
+    },
+    {
+        "id": 9,
+        "name": "Ibuprofeno",
+        "min_age": 10,
+        "max_age": null,
+        "single_gender": null
+    },
+    {
+        "id": 10,
+        "name": "Paracetamol jarabe",
+        "min_age": 0,
+        "max_age": 10,
+        "single_gender": null
+    },
+    {
+        "id": 11,
+        "name": "Paracetamol",
+        "min_age": 10,
+        "max_age": null,
+        "single_gender": null
+    },
+    {
+        "id": 12,
+        "name": "Naproxeno",
+        "min_age": 14,
+        "max_age": null,
+        "single_gender": null
+    },
+    {
+        "id": 13,
+        "name": "Amoxicilina",
+        "min_age": 14,
+        "max_age": null,
+        "single_gender": null
+    }
+]

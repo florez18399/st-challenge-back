@@ -3,7 +3,7 @@ package com.st.challenge.patients.services;
 import com.st.challenge.commons.constants.MessageConstants;
 import com.st.challenge.commons.exceptions.BussinessException;
 import com.st.challenge.commons.utils.Utils;
-import com.st.challenge.patients.entities.PatientEntity;
+import com.st.challenge.commons.entities.PatientEntity;
 import com.st.challenge.patients.models.CreatePatientRequest;
 import com.st.challenge.patients.models.PatientResponse;
 import com.st.challenge.patients.models.GetPatientsListResponse;
@@ -16,13 +16,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class PatientsService {
+public class PatientsService implements PatientsServiceI{
 
     private PatientsRepository patientsRepository;
 

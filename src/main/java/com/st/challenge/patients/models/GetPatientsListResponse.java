@@ -1,6 +1,6 @@
 package com.st.challenge.patients.models;
 
-import com.st.challenge.patients.entities.PatientEntity;
+import com.st.challenge.commons.entities.PatientEntity;
 import lombok.Builder;
 import lombok.Data;
 
