@@ -1,7 +1,9 @@
 package com.st.challenge.patients.services;
 
 import com.st.challenge.commons.constants.MessageConstants;
+import com.st.challenge.commons.enums.Gender;
 import com.st.challenge.commons.exceptions.BussinessException;
+import com.st.challenge.commons.utils.PatientSpecifications;
 import com.st.challenge.commons.utils.Utils;
 import com.st.challenge.commons.entities.PatientEntity;
 import com.st.challenge.patients.models.CreatePatientRequest;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
 @Service
 public class PatientsService implements PatientsServiceI{
 
@@ -30,6 +33,7 @@ public class PatientsService implements PatientsServiceI{
         this.patientsRepository = patientsRepository;
     }
 
+    @Override
     public PatientResponse createPatient(CreatePatientRequest createPatientRequest) {
         PatientEntity patientEntity = new PatientEntity();
         BeanUtils.copyProperties(createPatientRequest, patientEntity);
@@ -37,23 +41,26 @@ public class PatientsService implements PatientsServiceI{
         return Utils.patientEntToPatientResponse(patientEntity);
     }
 
-    public GetPatientsListResponse getPatientsList(Integer size, Integer pageSize) {
+    @Override
+    public GetPatientsListResponse getPatientsList(Integer size, Integer pageSize, String filterByName, Gender filterByGender) {
         Pageable pageable = PageRequest.of(size, pageSize);
-        Page<PatientEntity> patientsPage = this.patientsRepository.findAll(pageable);
+        Page<PatientEntity> patientsPage = this.patientsRepository.findAll(PatientSpecifications.patientCustomFilter(filterByGender, filterByName), pageable);
+
         return GetPatientsListResponse.builder()
                 .hasPrevious(patientsPage.hasPrevious())
                 .hasNext(patientsPage.hasNext())
                 .data(patientsPage.stream().toList()).build();
     }
 
-    public PatientResponse getDetailPatient(Integer patientId) {
+    @Override
+    public PatientEntity getDetailPatient(Integer patientId) {
         Optional<PatientEntity> optionalPatient = this.patientsRepository.findById(patientId);
-        PatientEntity patientEntity = optionalPatient.orElseThrow(() -> BussinessException.builder()
+        return optionalPatient.orElseThrow(() -> BussinessException.builder()
                 .code(HttpStatus.NOT_FOUND)
                 .message(MessageConstants.PATIENT_NOT_FOUND).build());
-        return Utils.patientEntToPatientResponse(patientEntity);
     }
 
+    @Override
     public PatientResponse updatePatient(Integer patientId, UpdatePatientRequest updatePatientRequest) {
         Optional<PatientEntity> optionalPatient = this.patientsRepository.findById(patientId);
         PatientEntity patientEntity = optionalPatient.orElseThrow(() -> BussinessException.builder()
@@ -64,6 +71,7 @@ public class PatientsService implements PatientsServiceI{
         return Utils.patientEntToPatientResponse(patientEntity);
     }
 
+    @Override
     public void deletePatient(Integer patientId) {
         try {
             patientsRepository.deleteById(patientId);

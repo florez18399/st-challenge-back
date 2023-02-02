@@ -38,6 +38,11 @@ CREATE SEQUENCE PATIENTS_SEQ
     INCREMENT BY 1
     START WITH 1000;
 
+-- Sequence for prescription_id
+CREATE SEQUENCE PRESCRIPTIONS_SEQ
+    INCREMENT BY 1
+    START WITH 1000;
+
 -- Insertions
 -- Table patients
 insert into PATIENTS (patient_id, patient_first_name, patient_last_name, patient_gender, patient_birth_date) values (1, 'Banky', 'McCreery', 'M', '2009-04-22');

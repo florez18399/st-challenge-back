@@ -1,5 +1,7 @@
 package com.st.challenge.patients.services;
 
+import com.st.challenge.commons.entities.PatientEntity;
+import com.st.challenge.commons.enums.Gender;
 import com.st.challenge.patients.models.CreatePatientRequest;
 import com.st.challenge.patients.models.GetPatientsListResponse;
 import com.st.challenge.patients.models.PatientResponse;
@@ -9,9 +11,9 @@ public interface PatientsServiceI {
 
     PatientResponse createPatient(CreatePatientRequest createPatientRequest);
 
-    GetPatientsListResponse getPatientsList(Integer size, Integer pageSize);
+    GetPatientsListResponse getPatientsList(Integer size, Integer pageSize, String filterByName, Gender filterByGender);
 
-    PatientResponse getDetailPatient(Integer patientId);
+    PatientEntity getDetailPatient(Integer patientId);
 
     PatientResponse updatePatient(Integer patientId, UpdatePatientRequest updatePatientRequest);
 

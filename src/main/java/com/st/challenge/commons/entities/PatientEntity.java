@@ -4,6 +4,9 @@ import com.st.challenge.commons.enums.Gender;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
@@ -30,4 +33,10 @@ public class PatientEntity {
     @Column(name = "patient_gender")
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    public Integer calculateAge() {
+        return Period.between(
+                new Date(birthDate.getTime()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                LocalDate.now()).getYears();
+    }
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface MedicinesServiceI {
 
     List<MedicineEntity> listMedicines();
+
+    MedicineEntity getMedicineById(Integer id);
 }
