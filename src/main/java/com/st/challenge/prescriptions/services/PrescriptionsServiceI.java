@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PrescriptionsServiceI {
 
-     void createPrescription(Integer patientId, Integer medicineId);
+     PrescriptionEntity createPrescription(Integer patientId, Integer medicineId);
 
      List<PrescriptionEntity> getPatientPrescription(Integer patientId);
 

@@ -34,7 +34,7 @@ public class PrescriptionsService implements PrescriptionsServiceI {
     }
 
     @Override
-    public void createPrescription(Integer patientId, Integer medicineId) {
+    public PrescriptionEntity createPrescription(Integer patientId, Integer medicineId) {
         MedicineEntity medicine = medicinesService.getMedicineById(medicineId);
         PatientEntity patient = patientsService.getDetailPatient(patientId);
         Integer patientAge = patient.calculateAge();
@@ -66,6 +66,8 @@ public class PrescriptionsService implements PrescriptionsServiceI {
         prescriptionEntity.setPrescriptionDate(new Date());
 
         prescriptionsRepository.save(prescriptionEntity);
+
+        return prescriptionEntity;
     }
 
 

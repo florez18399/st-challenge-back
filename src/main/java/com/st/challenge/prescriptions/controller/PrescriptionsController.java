@@ -23,12 +23,12 @@ public class PrescriptionsController {
     }
 
     @PostMapping
-    public ResponseEntity<?> prescribeMedicineToPatient(
+    public ResponseEntity<PrescriptionEntity> prescribeMedicineToPatient(
             @RequestParam @Min(0) Integer medicineId,
             @RequestParam @Min(0) Integer patientId
     ) {
-        this.prescriptionsServiceI.createPrescription(patientId, medicineId);
-        return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
+        return new ResponseEntity<>(this.prescriptionsServiceI.createPrescription(patientId, medicineId),
+                HttpStatus.CREATED);
     }
 
     @GetMapping("/{patientId}")

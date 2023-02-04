@@ -32,9 +32,9 @@ public class PatientsController {
     public GetPatientsListResponse listPatients(@RequestParam(defaultValue = "1") @Min(0) Integer page,
                                                  @RequestParam(defaultValue = "10") @Min(1) Integer pageSize,
                                                  @RequestParam(required = false) String filterByName,
-                                                @RequestParam(required = false) Gender filterByGenre
+                                                @RequestParam(required = false) Gender filterByGender
                                                 ) {
-        return patientsService.getPatientsList(page, pageSize, filterByName, filterByGenre);
+        return patientsService.getPatientsList(page, pageSize, filterByName, filterByGender);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -56,7 +56,7 @@ public class PatientsController {
     @DeleteMapping(value = "/{patientId}")
     public ResponseEntity<?> deletePatient(@PathVariable @Min(0) Integer patientId) {
         patientsService.deletePatient(patientId);
-        return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
 }

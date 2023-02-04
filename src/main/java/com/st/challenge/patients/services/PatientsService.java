@@ -44,7 +44,8 @@ public class PatientsService implements PatientsServiceI{
     @Override
     public GetPatientsListResponse getPatientsList(Integer size, Integer pageSize, String filterByName, Gender filterByGender) {
         Pageable pageable = PageRequest.of(size, pageSize);
-        Page<PatientEntity> patientsPage = this.patientsRepository.findAll(PatientSpecifications.patientCustomFilter(filterByGender, filterByName), pageable);
+        Page<PatientEntity> patientsPage = this.patientsRepository.findAll
+                (PatientSpecifications.patientCustomFilter(filterByGender, filterByName), pageable);
 
         return GetPatientsListResponse.builder()
                 .hasPrevious(patientsPage.hasPrevious())
